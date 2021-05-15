@@ -189,7 +189,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YmS-25-eJz">
-                                <rect key="frame" x="20" y="706" width="125" height="34"/>
+                                <rect key="frame" x="20" y="630" width="125" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -411,10 +411,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8iw-gA-lGs"/>
         <segue reference="lD1-Si-AXL"/>
         <segue reference="WJf-zO-2sW"/>
-        <segue reference="rcL-Yg-wUm"/>
+        <segue reference="xmE-ni-3Vw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Plate View.jpg" width="194.25" height="291"/>

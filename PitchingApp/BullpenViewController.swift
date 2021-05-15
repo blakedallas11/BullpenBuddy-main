@@ -10,7 +10,7 @@ import SwiftUI
 import CoreData
 
 
-class BullpenViewController: UIViewController, UIGestureRecognizerDelegate{
+class BullpenViewController: UIViewController, UIGestureRecognizerDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
 
     
     // MARK: Whats left to work on
@@ -19,6 +19,27 @@ class BullpenViewController: UIViewController, UIGestureRecognizerDelegate{
      Get the saving of locations and pitch type of a pitch. And somehow have it go into the correct pitcher's relationships in CoreData
      
      */
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+     return pickerData[row]
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        typeField.text = pickerData[row]
+    }
+    
+    var pickerView = UIPickerView()
+    
+    var pickerData: [String] = [String]()
     
     
     var placeholderX = 0.0
@@ -33,7 +54,6 @@ class BullpenViewController: UIViewController, UIGestureRecognizerDelegate{
    
     @IBOutlet weak var typeField: UITextField!
     
-    let pickerView = UIPickerView()
     
     
     func createTimer(variable: UIView) {
@@ -88,8 +108,7 @@ class BullpenViewController: UIViewController, UIGestureRecognizerDelegate{
         managedObjectContext.performAndWait {
             actualX = placeholderX
             actualY = placeholderY
-            //guard let pitch = CoreDataManager.shared.createPitch(type = typeField.text ?? "FB", intendedxLoc: intendedX, intendedyLoc: intendedY, actualxLoc: actualX, actualyLoc: actualY) else {return}
-            //CoreDataManager.shared.createPitch(type = typeField.text ?? "FB", intendedxLoc: intendedX ?? 12, intendedyLoc: intendedY ?? 12, actualxLoc: actualX ?? 12, actualyLoc: actualY ?? 12)
+            
             guard let pitch = CoreDataManager.shared.createPitch(type: typeField.text ?? "FB", intendedxLoc: intendedX, intendedyLoc: intendedY, actualxLoc: actualX, actualyLoc: actualY) else {return}
             print("intended location: \(pitch.intendedxLoc), \(pitch.intendedyLoc)")
             print("actual location: \(pitch.actualxLoc), \(pitch.actualyLoc)")
@@ -104,13 +123,13 @@ class BullpenViewController: UIViewController, UIGestureRecognizerDelegate{
 
         
         
-        let setLocationButton = UIButton(frame: CGRect(x: 165, y: 696, width: 80, height: 50))
+        let setLocationButton = UIButton(frame: CGRect(x: 165, y: 620, width: 80, height: 50))
         setLocationButton.backgroundColor = .lightGray
         setLocationButton.setTitle("Set Location", for: .normal)
         setLocationButton.titleLabel!.adjustsFontSizeToFitWidth = true
         
         
-        let throwPitchButton = UIButton(frame: CGRect(x: 285, y: 696, width: 80, height: 50))
+        let throwPitchButton = UIButton(frame: CGRect(x: 285, y: 620, width: 80, height: 50))
         throwPitchButton.backgroundColor = .lightGray
         throwPitchButton.setTitle("Throw Pitch", for: .normal)
         throwPitchButton.titleLabel!.adjustsFontSizeToFitWidth = true
@@ -119,8 +138,14 @@ class BullpenViewController: UIViewController, UIGestureRecognizerDelegate{
         setLocationButton.addTarget(self,action: #selector(self.setLocationCommand),for: .touchUpInside)
         throwPitchButton.addTarget(self, action: #selector(self.throwPitch), for: .touchUpInside)
         
-        typeField.inputView = pickerView
         
+        pickerData = ["FB", "CB", "CH", "SL", "2S", "CT", "SP"]
+        typeField.inputView = pickerView
+        pickerView.dataSource = pickerData as? UIPickerViewDataSource
+        
+        pickerView.reloadAllComponents()
+        
+        pickerView.delegate = self
         
         self.view.addSubview(setLocationButton)
         self.view.addSubview(throwPitchButton)
