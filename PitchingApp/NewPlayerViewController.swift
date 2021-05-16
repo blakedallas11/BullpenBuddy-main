@@ -68,8 +68,7 @@ class NewPlayerViewController: UIViewController, UIPickerViewDelegate {
 
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         handednessField.text = handednessPickerData[row]
-        //Hides the selector menu right after a tapped response has been selected
-        //self.handednessPicker.isHidden = true
+        
     }
     
   
@@ -83,7 +82,7 @@ class NewPlayerViewController: UIViewController, UIPickerViewDelegate {
             
             
         guard let createdPlayer = CoreDataManager.shared.createPlayer(name: nameField.text ?? "Balaaka", age: ageField.text!, handedness: handednessField.text ?? "Both", level: levelField.text ?? "Flat") else { return }
-        print(createdPlayer.name ?? "Can't find player")
+        //print(createdPlayer.name ?? "Can't find player")
         
         //This function is used for testing purposes to see if the player objects are persisting
         //listPlayers()
@@ -116,13 +115,7 @@ class NewPlayerViewController: UIViewController, UIPickerViewDelegate {
         
         let rightBarButton = UIBarButtonItem(title: "Save", style: UIBarButtonItem.Style.plain, target: self, action: #selector(myRightSideBarButtonItemTapped(_:)) )
         self.navigationItem.rightBarButtonItem = rightBarButton
-        //handednessField.inputView = handednessPicker
-        //levelField.inputView = levelPicker
         
-        
-        //handednessPicker.delegate = self
-        
-
     }
     
 

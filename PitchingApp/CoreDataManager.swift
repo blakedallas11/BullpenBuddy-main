@@ -138,17 +138,52 @@ struct CoreDataManager {
     
     func deleteAllPlayers() {
         let context = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<Player>(entityName: "Player")
-        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Player")
+        // Configure Fetch Request
+        fetchRequest.includesPropertyValues = false
+
         do {
-            if let result = try? context.fetch(fetchRequest) {
-                for object in result {
-                    context.delete(object)
-                    print("deleted objects")
-                }
+            let items = try context.fetch(fetchRequest) as! [NSManagedObject]
+
+            for item in items {
+                context.delete(item)
             }
+
+            // Save Changes
+            try context.save()
+
+        } catch {
+            print("Could not delete all players...")
         }
     }
+    
+    
+    
+    func deleteAllPitches() {
+        let context = persistentContainer.viewContext
+        
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pitch")
+        // Configure Fetch Request
+        fetchRequest.includesPropertyValues = false
+
+        do {
+            let items = try context.fetch(fetchRequest) as! [NSManagedObject]
+
+            for item in items {
+                context.delete(item)
+            }
+
+            // Save Changes
+            try context.save()
+
+        } catch {
+            print("Could not delete all pitches")
+        }
+    }
+    
+    
+    
     
     func deletePitch() {
         /*
@@ -156,6 +191,19 @@ struct CoreDataManager {
          */
     }
     
+    func fetchPitches() -> [Pitch]? {
+        
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Pitch>(entityName: "Pitch")
+        
+        do{
+            let pitches = try context.fetch(fetchRequest)
+            return pitches
+        } catch let fetchError {
+            print("Failed to fetch pitches: \(fetchError)")
+        }
+        return nil
+    }
     
     
     

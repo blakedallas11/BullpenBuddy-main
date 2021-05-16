@@ -18,7 +18,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+        //If I need to delete all players in the core data store, I uncomment this and launch the simulator
+        //CoreDataManager.shared.deleteAllPlayers()
+        
+        //If I need to delete all the pitches in the Core Data store again, I uncomment this and launch the simulator
+        //CoreDataManager.shared.deleteAllPitches()
     }
 
 

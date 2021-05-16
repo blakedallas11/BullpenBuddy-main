@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -106,35 +106,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxu-v4-lGG">
-                                <rect key="frame" x="20" y="309" width="374" height="92"/>
-                                <color key="backgroundColor" red="0.72157522389999995" green="0.74718070160000005" blue="0.7617947357" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="ncx-vp-fJ5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
-                                <state key="normal" title="Edit Player">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                </state>
-                                <connections>
-                                    <segue destination="2M5-bM-Q7Y" kind="presentation" modalPresentationStyle="fullScreen" id="WJf-zO-2sW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoU-JL-agl">
-                                <rect key="frame" x="20" y="540" width="374" height="95"/>
-                                <color key="backgroundColor" red="0.72157522389999995" green="0.74718070160000005" blue="0.7617947357" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="8uX-rt-diy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
-                                <state key="normal" title="Start Bullpen">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="pqe-JO-QFL" kind="presentation" modalPresentationStyle="fullScreen" id="8iw-gA-lGs"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JAq-4f-5vE">
                                 <rect key="frame" x="94" y="218" width="227" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -148,17 +119,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoU-JL-agl">
+                                <rect key="frame" x="20" y="401" width="374" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.72157522389999995" green="0.74718070160000005" blue="0.7617947357" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
+                                <state key="normal" title="Start Bullpen">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="pqe-JO-QFL" kind="presentation" modalPresentationStyle="fullScreen" id="8iw-gA-lGs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LJH-nR-I1D"/>
                         <color key="backgroundColor" red="0.82977231600000001" green="0.85921722460000005" blue="0.87602257009999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="Hxu-v4-lGG" firstAttribute="leading" secondItem="RoU-JL-agl" secondAttribute="leading" id="AQK-5m-6C5"/>
-                            <constraint firstItem="LJH-nR-I1D" firstAttribute="bottom" secondItem="RoU-JL-agl" secondAttribute="bottom" constant="227" id="Ehc-Nu-Kly"/>
-                            <constraint firstItem="Hxu-v4-lGG" firstAttribute="top" secondItem="LJH-nR-I1D" secondAttribute="top" constant="221" id="L6v-Dy-wr6"/>
-                            <constraint firstItem="Hxu-v4-lGG" firstAttribute="trailing" secondItem="i9N-KM-hna" secondAttribute="trailingMargin" id="MZh-sj-4Ck"/>
-                            <constraint firstItem="Hxu-v4-lGG" firstAttribute="trailing" secondItem="RoU-JL-agl" secondAttribute="trailing" id="NsL-xM-xdv"/>
-                            <constraint firstItem="Hxu-v4-lGG" firstAttribute="leading" secondItem="i9N-KM-hna" secondAttribute="leadingMargin" id="iZl-ZF-iOM"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Returning Player" id="Tlx-af-6TH">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.backward" catalog="system" id="ftg-8P-zuY">
@@ -248,6 +223,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="StatsTable" destination="koN-T0-bq2" id="Rax-sG-ByU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1R2-P4-LBz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -411,9 +389,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="8iw-gA-lGs"/>
         <segue reference="lD1-Si-AXL"/>
-        <segue reference="WJf-zO-2sW"/>
-        <segue reference="xmE-ni-3Vw"/>
+        <segue reference="rcL-Yg-wUm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Plate View.jpg" width="194.25" height="291"/>

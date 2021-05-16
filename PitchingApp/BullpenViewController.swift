@@ -21,6 +21,17 @@ class BullpenViewController: UIViewController, UIGestureRecognizerDelegate, UIPi
      */
     
     
+    func missDistance(pitch: Pitch) -> Double {
+        var distance = 0.0
+        
+        let unrootedDistance = pow(pitch.intendedxLoc-pitch.actualxLoc,2) + pow(pitch.intendedyLoc - pitch.actualyLoc, 2)
+        distance = unrootedDistance.squareRoot()
+        return distance
+    }
+    
+    
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -84,7 +95,7 @@ class BullpenViewController: UIViewController, UIGestureRecognizerDelegate, UIPi
         self.view.addSubview(location)
         
         createTimer(variable: location)
-        print(location.center)
+        //print(location.center)
         
         placeholderX = Double(touchpoint.x)
         placeholderY = Double(touchpoint.y)
@@ -110,8 +121,11 @@ class BullpenViewController: UIViewController, UIGestureRecognizerDelegate, UIPi
             actualY = placeholderY
             
             guard let pitch = CoreDataManager.shared.createPitch(type: typeField.text ?? "FB", intendedxLoc: intendedX, intendedyLoc: intendedY, actualxLoc: actualX, actualyLoc: actualY) else {return}
-            print("intended location: \(pitch.intendedxLoc), \(pitch.intendedyLoc)")
-            print("actual location: \(pitch.actualxLoc), \(pitch.actualyLoc)")
+            //print("Pitch type: \(pitch.type ?? "FB")")
+            //print("intended location: \(pitch.intendedxLoc), \(pitch.intendedyLoc)")
+            //print("actual location: \(pitch.actualxLoc), \(pitch.actualyLoc)")
+            //print("Miss distance: \(missDistance(pitch: pitch)) pixels")
+            
         }
     }
     
